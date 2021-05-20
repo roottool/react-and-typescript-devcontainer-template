@@ -21,17 +21,16 @@
   ],
   // * Set *default* container specific settings.json values on container create.
   "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    // * For Linter and Formatter
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "editor.codeActionsOnSave": [
       "source.fixAll.eslint",
     ],
-    // * For Linter and Formatter
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
-    "editor.formatOnType": true,
     "editor.tabSize": 2,
     "eslint.packageManager": "yarn",
     "[markdown]": {
