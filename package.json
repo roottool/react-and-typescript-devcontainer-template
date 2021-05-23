@@ -22,7 +22,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "test": "run-p test:*",
     "test:jest": "echo \"Write tests!\"",
-    "test:check-types": "tsc --noEmit"
+    "test:check-types": "echo \"tsc --noEmit\""
   },
   "importSort": {
     ".js, .jsx, .ts, .tsx": {
