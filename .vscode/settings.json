@@ -1,5 +1,4 @@
 {
-  // * For Linter and Formatter
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.codeActionsOnSave": [

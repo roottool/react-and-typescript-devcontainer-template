@@ -10,14 +10,15 @@
       "USER_UID": "2000",
     }
   },
-  "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
-    "source=zsh_history-for-{repository name},target=/home/vscode/commandhistory,type=volume",
-    "source=node_modules-for-{repository name},target=${containerWorkspaceFolder}/node_modules,type=volume",
-    "source=vscode-extension-for-{repository name},target=/home/vscode/.vscode-server/extensions,type=volume",
-  ],
+  "overrideCommand": false,
   "runArgs": [
     "--name={repository name}",
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source={repository name}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    "source={repository name}-vscode_extensions,target=/home/vscode/.vscode-server/extensions,type=volume",
+    "source={repository name}-zsh_history,target=/home/vscode/commandhistory,type=volume",
   ],
   // * Set *default* container specific settings.json values on container create.
   "settings": {
