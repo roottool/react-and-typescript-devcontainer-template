@@ -1,17 +1,16 @@
 {
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "editor.codeActionsOnSave": [
-    "source.fixAll.eslint",
-  ],
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modifications",
   "editor.tabSize": 2,
   "eslint.packageManager": "yarn",
+  "json.format.enable": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     "editor.wordWrap": "on",
     "editor.quickSuggestions": false
-  },
+  }
 }
