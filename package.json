@@ -1,16 +1,16 @@
 {
-  "name": "nodejs-and-typescript-devcontainer-template",
+  "name": "react-and-typescript-devcontainer-template",
   "version": "1.0.0",
-  "description": "This is a template for a devcontainer of Node.js and TypeScript.",
+  "description": "This is a template for a devcontainer of React and TypeScript.",
   "license": "MIT",
   "private": true,
   "author": {
     "name": "roottool",
     "url": "https://github.com/roottool"
   },
-  "repository": "https://github.com/roottool/nodejs-and-typescript-devcontainer-template.git",
+  "repository": "https://github.com/roottool/react-and-typescript-devcontainer-template.git",
   "bugs": {
-    "url": "https://github.com/roottool/nodejs-and-typescript-devcontainer-template/issues"
+    "url": "https://github.com/roottool/react-and-typescript-devcontainer-template/issues"
   },
   "scripts": {
     "preinstall": "npx only-allow yarn",

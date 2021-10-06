@@ -1,5 +1,5 @@
 {
-  "name": "Node.js & TypeScript",
+  "name": "React & TypeScript",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
