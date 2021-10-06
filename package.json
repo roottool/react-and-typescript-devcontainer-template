@@ -10,7 +10,7 @@
   },
   "repository": "https://github.com/roottool/nodejs-and-typescript-devcontainer-template.git",
   "bugs": {
-    "url": "https://github.com/roottool/r6s-sensivity-calculator-for-web/issues"
+    "url": "https://github.com/roottool/nodejs-and-typescript-devcontainer-template/issues"
   },
   "scripts": {
     "preinstall": "npx only-allow yarn",
@@ -59,7 +59,6 @@
     "eslint-plugin-typescript-sort-keys": "^1.7.0",
     "husky": "^7.0.1",
     "import-sort-style-module": "^6.0.0",
-    "is-ci": "^3.0.0",
     "lint-staged": "^11.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
