@@ -1,35 +1,33 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/typescript-node
 {
   "name": "Node.js & TypeScript",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "16-buster",
-      "USERNAME": "vscode",
-      "USER_UID": "2000"
+      "VARIANT": "16-bullseye",
+      "USERNAME": "node"
     }
   },
   "overrideCommand": false,
-  "runArgs": ["--name={repository name}"],
+  "runArgs": ["--name=your_repository_name"],
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
-    "source={repository name}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
-    "source={repository name}-vscode_extensions,target=/home/vscode/.vscode-server/extensions,type=volume",
-    "source={repository name}-zsh_history,target=/home/vscode/commandhistory,type=volume"
+    "source=your_repository_name-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    "source=your_repository_name-vscode_extensions,target=/home/node/.vscode-server/extensions,type=volume",
+    "source=your_repository_name-zsh_history,target=/home/node/commandhistory,type=volume"
   ],
   // * Set *default* container specific settings.json values on container create.
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh",
-    // * For Linter and Formatter
+    // * For Linter
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+    "eslint.packageManager": "yarn",
+    // * For Formatter
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
-    "eslint.packageManager": "yarn",
     "json.format.enable": false,
     "[markdown]": {
       "files.trimTrailingWhitespace": false,
@@ -50,8 +48,8 @@
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // * Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "",
+  "postCreateCommand": "yarn install",
   // * Uncomment to connect as a non-root user.
   // * See https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "node"
 }
