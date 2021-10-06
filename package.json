@@ -14,7 +14,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow yarn",
-    "prepare": "is-ci || husky install",
+    "prepare": "npx is-ci || husky install",
     "lint": "run-p -c lint:*",
     "lint:check-types": "tsc --noEmit",
     "lint:eslint": "eslint . --color --ext .js,.jsx,.ts,.tsx",
