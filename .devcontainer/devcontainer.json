@@ -4,7 +4,8 @@
     "dockerfile": "Dockerfile",
     "args": {
       "VARIANT": "16-bullseye",
-      "USERNAME": "node"
+      "USERNAME": "node",
+      "USER_UID": "1000"
     }
   },
   "overrideCommand": false,
