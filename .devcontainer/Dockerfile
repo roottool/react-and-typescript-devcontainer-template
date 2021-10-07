@@ -24,16 +24,8 @@ RUN apt-get update \
   && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
   && chmod 0440 /etc/sudoers.d/${USERNAME} \
   && curl ${COMMON_DEBIAN_URL} -sSf | bash -s "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
-  # * Use Docker script from script library to set things up
-  && curl ${DOCKER_DEBIAN_URL} -sSf | bash -s "${ENABLE_NONROOT_DOCKER}" "/var/run/docker-host.sock" "/var/run/docker.sock" "${USERNAME}" "${USE_MOBY}" \
-  # * Avoiding extension reinstalls on container rebuild
-  && mkdir -p /home/${USERNAME}/.vscode-server/extensions \
-  # * Persist zsh history between runs
-  && SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/home/${USERNAME}/commandhistory/.zsh_history" \
-  && mkdir -p /home/${USERNAME}/commandhistory \
-  && touch /home/${USERNAME}/commandhistory/.zsh_history \
-  && echo ${SNIPPET} >> "/home/${USERNAME}/.zshrc" \
-  && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} \
+  # * Use Docker script from script library to set things up.
+  && curl ${DOCKER_DEBIAN_URL} -sSf | bash -s "${ENABLE_NONROOT_DOCKER}" "${SOURCE_SOCKET}" "${TARGET_SOCKET}" "${USERNAME}" "${USE_MOBY}" \
   # * Create node_modules folder
   && mkdir -p ${WORKING_DIR}/node_modules \
   && chown -R ${USERNAME}:${USERNAME} ${WORKING_DIR} \
@@ -45,6 +37,14 @@ RUN apt-get update \
 USER ${USERNAME}
 
 WORKDIR ${WORKING_DIR}
+
+# * Avoiding extension reinstalls on container rebuild
+RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
+  # * Persist zsh history between runs
+  && SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/home/${USERNAME}/commandhistory/.zsh_history" \
+  && mkdir -p /home/${USERNAME}/commandhistory \
+  && touch /home/${USERNAME}/commandhistory/.zsh_history \
+  && echo ${SNIPPET} >> "/home/${USERNAME}/.zshrc"
 
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
 CMD [ "sleep", "infinity" ]
