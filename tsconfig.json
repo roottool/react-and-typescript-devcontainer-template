@@ -20,5 +20,7 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["*.config.js", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
