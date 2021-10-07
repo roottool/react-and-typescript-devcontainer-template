@@ -2,6 +2,8 @@ ARG VARIANT=${VARIANT:-"16-bullseye"}
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 
 ARG USERNAME=${USERNAME:-"node"}
+ARG USER_UID=${USER_UID:-"1000"}
+ARG USER_GID=${USER_UID}
 
 ARG WORKING_DIR=/workspaces/{repository-name}
 
