@@ -1,2 +1,4 @@
 node_module/
-src/
+
+package.json
+package-lock.json

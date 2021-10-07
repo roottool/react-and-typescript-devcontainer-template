@@ -1,12 +1,18 @@
 {
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  // * For Linter
+  "editor.codeActionsOnSave": [
+    "source.fixAll.eslint",
+    "source.addMissingImports"
+  ],
+  "eslint.packageManager": "yarn",
+  // * For Formatter
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modifications",
   "editor.tabSize": 2,
-  "eslint.packageManager": "yarn",
   "json.format.enable": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false,

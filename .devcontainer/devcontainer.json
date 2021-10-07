@@ -19,7 +19,10 @@
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh",
     // * For Linter
-    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+    "editor.codeActionsOnSave": [
+      "source.fixAll.eslint",
+      "source.addMissingImports"
+    ],
     "eslint.packageManager": "yarn",
     // * For Formatter
     "files.trimFinalNewlines": true,

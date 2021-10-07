@@ -12,7 +12,6 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": ["tsconfig.json"],
     "sourceType": "module",
     "tsconfigRootDir": "."
   },
@@ -21,6 +20,7 @@
     "import",
     "react",
     "react-hooks",
+    "unused-imports",
     "sort-keys-fix",
     "sort-destructure-keys",
     "typescript-sort-keys"
