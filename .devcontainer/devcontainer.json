@@ -25,7 +25,7 @@
       "version": "latest"
     },
     "node": {
-      "version": "latest"
+      "version": "lts"
     }
   },
   "remoteEnv": {
