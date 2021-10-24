@@ -5,6 +5,7 @@
     "args": {
       "VARIANT": "bullseye",
       "USERNAME": "vscode",
+      "USER_UID": "1000"
     }
   },
   "overrideCommand": false,
@@ -24,7 +25,7 @@
       "version": "latest"
     },
     "node": {
-      "version": "lts"
+      "version": "latest"
     }
   },
   "remoteEnv": {
