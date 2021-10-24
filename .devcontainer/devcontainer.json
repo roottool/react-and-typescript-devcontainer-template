@@ -5,6 +5,7 @@
     "args": {
       "VARIANT": "bullseye",
       "USERNAME": "vscode",
+      "USER_UID": "1000"
     }
   },
   "overrideCommand": false,
