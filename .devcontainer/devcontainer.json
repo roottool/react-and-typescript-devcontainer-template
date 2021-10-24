@@ -3,8 +3,8 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "bullseye",
-      "USERNAME": "vscode",
+      "VARIANT": "16-bullseye",
+      "USERNAME": "node",
       "USER_UID": "1000"
     }
   },
@@ -13,25 +13,9 @@
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
     "source=your_repository_name-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
-    "source=your_repository_name-vscode_extensions,target=/home/vscode/.vscode-server/extensions,type=volume",
-    "source=your_repository_name-zsh_history,target=/home/vscode/commandhistory,type=volume"
+    "source=your_repository_name-vscode_extensions,target=/home/node/.vscode-server/extensions,type=volume",
+    "source=your_repository_name-zsh_history,target=/home/node/commandhistory,type=volume"
   ],
-  "features": {
-    "docker-from-docker": {
-      "version": "latest",
-      "moby": true
-    },
-    "git": {
-      "version": "latest"
-    },
-    "node": {
-      "version": "latest"
-    }
-  },
-  "remoteEnv": {
-		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
-    "PATH": "${containerEnv:PATH}",
-	},
   // * Set *default* container specific settings.json values on container create.
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh",
@@ -41,7 +25,7 @@
     // * For Linter and Formatter
     "editor.codeActionsOnSave": [
       "source.fixAll.eslint",
-      "source.addMissingImports",
+      "source.addMissingImports"
     ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
@@ -70,8 +54,8 @@
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // * Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "sudo chown -R vscode:vscode node_modules",
+  "postCreateCommand": "sudo chown -R node:node node_modules",
   // * Uncomment to connect as a non-root user.
   // * See https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "node"
 }
