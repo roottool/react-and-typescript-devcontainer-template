@@ -1,22 +1,27 @@
+// * For format details, see https://aka.ms/devcontainer.json.
+// * For config options, see the README at:
+// * https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/debian
 {
   "name": "React & TypeScript",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "16-bullseye",
-      "USERNAME": "node",
-      "USER_UID": "1000"
+      "USERNAME": "vscode",
+      "VARIANT": "bullseye"
     }
   },
-  "overrideCommand": false,
-  "runArgs": ["--name=your_repository_name"],
+  "runArgs": ["--init", "--name=your_repository_name"],
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    // "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     "source=your_repository_name-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
     "source=your_repository_name-vscode_extensions,target=/home/node/.vscode-server/extensions,type=volume",
     "source=your_repository_name-zsh_history,target=/home/node/commandhistory,type=volume"
   ],
-  // * Set *default* container specific settings.json values on container create.
+  "features": {
+    "docker-from-docker": "latest",
+    "git": "latest",
+    "node": "lts"
+  },
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh",
     "files.watcherExclude": {
@@ -24,8 +29,8 @@
     },
     // * For Linter and Formatter
     "editor.codeActionsOnSave": [
-      "source.fixAll.eslint",
-      "source.addMissingImports"
+      "source.addMissingImports",
+      "source.fixAll.eslint"
     ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
@@ -41,21 +46,20 @@
       "editor.quickSuggestions": false
     }
   },
-  // * Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-    // * EditorConfig
-    "editorconfig.editorconfig",
     // * Docker
     "ms-azuretools.vscode-docker",
+    // * EditorConfig
+    "editorconfig.editorconfig",
     // * JavaScript, TypeScript
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode"
   ],
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  "forwardPorts": [3000],
   // * Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "sudo chown -R node:node node_modules",
-  // * Uncomment to connect as a non-root user.
-  // * See https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "node"
+  "postCreateCommand": "sudo chown -R vscode:vscode node_modules",
+  // * Comment out connect as root instead.
+  // * More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode"
 }
