@@ -51,6 +51,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/consistent-type-imports": "warn",
     "import/order": [
       "warn",
       {
@@ -68,7 +69,6 @@
         "newlines-between": "always"
       }
     ],
-    "@typescript-eslint/consistent-type-imports": "warn",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-sort-props": [
       "warn",
