@@ -113,8 +113,3 @@ dist
 
 # .env files
 .env*
-
-# GraphQL code generator output
-src/services/infrastructures/github/graphql/@types
-src/services/infrastructures/github/graphql/mutations/index.ts
-src/services/infrastructures/github/graphql/queries/index.ts

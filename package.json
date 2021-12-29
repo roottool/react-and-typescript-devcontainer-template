@@ -2,8 +2,8 @@
   "name": "react-and-typescript-devcontainer-template",
   "version": "1.0.0",
   "description": "This is a template for a devcontainer of React and TypeScript.",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "author": {
     "name": "roottool",
     "url": "https://github.com/roottool"
