@@ -19,7 +19,7 @@
     "lint:eslint": "eslint . --color --ext .js,.ts,.tsx",
     "lint:prettier": "prettier --check .",
     "fix": "run-p -c fix:*",
-    "fix:eslint": "eslint . --fix --color --ext .js,.ts,.tsx",
+    "fix:eslint": "eslint . --fix --cache --color --ext .js,.ts,.tsx",
     "format": "prettier --write .",
     "test": "run-p test:*",
     "test:jest": "echo \"jest --coverage\"",
