@@ -81,5 +81,13 @@
     "sort-destructure-keys/sort-destructure-keys": "warn",
     "typescript-sort-keys/interface": "warn",
     "typescript-sort-keys/string-enum": "warn"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.config.js", "setupTests.ts"],
+      "rules": {
+        "import/no-unresolved": "off"
+      }
+    }
+  ]
 }

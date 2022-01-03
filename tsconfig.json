@@ -21,5 +21,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["node_modules", "jest.config.js"]
+  "exclude": ["node_modules"]
 }

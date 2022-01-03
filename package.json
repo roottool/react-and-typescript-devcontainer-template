@@ -32,14 +32,14 @@
     }
   },
   "lint-staged": {
-    "*.js|ts|tsx": [
+    "*.(js|ts|tsx)": [
       "yarn format",
       "echo \"yarn fix\""
     ],
-    "*.json|md": [
+    "*.(json|md)": [
       "yarn format"
     ],
-    ".eslint|prettierrc": [
+    ".(eslint|prettier)rc": [
       "yarn format"
     ]
   },
