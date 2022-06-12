@@ -13,17 +13,16 @@
     "url": "https://github.com/roottool/react-and-typescript-devcontainer-template/issues"
   },
   "scripts": {
-    "preinstall": "npx only-allow yarn",
-    "prepare": "npx is-ci || husky install",
-    "lint": "run-p -c lint:*",
-    "lint:eslint": "eslint . --color --ext .js,.ts,.tsx",
+    "prepare": "is-ci || husky install",
+    "lint": "run-s -c lint:*",
     "lint:prettier": "prettier --check .",
+    "lint:eslint": "eslint . --color --ext .js,.ts,.tsx",
+    "lint:tsc": "echo \"tsc --noEmit\"",
     "fix": "run-p -c fix:*",
+    "fix:prettier": "prettier --write .",
     "fix:eslint": "eslint . --fix --color --ext .js,.ts,.tsx",
-    "format": "prettier --write .",
-    "test": "run-p test:*",
-    "test:jest": "echo \"Write tests!\"",
-    "test:check-types": "echo \"tsc --noEmit\""
+    "test": "run-s test:*",
+    "test:jest": "echo \"Write tests!\""
   },
   "importSort": {
     ".js, .ts, .tsx": {
@@ -32,14 +31,14 @@
     }
   },
   "lint-staged": {
-    "*.{js|ts|tsx}": [
-      "yarn format",
-      "yarn fix"
+    "*.js|tsx?": [
+      "prettier --write",
+      "eslint --fix --color"
     ],
-    "*.{json|md}": [
-      "yarn format"
+    "*.md|json|ya?ml": [
+      "prettier --write"
     ],
-    ".{eslint|prettier}rc": [
+    ".eslint|prettierrc": [
       "yarn format"
     ]
   },
@@ -66,6 +65,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
     "import-sort-style-module": "^6.0.0",
+    "is-ci": "^3.0.1",
     "lint-staged": "^12.1.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
